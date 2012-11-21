@@ -12,45 +12,45 @@ DAEMON_USER_ID=`${ID_CMD} -u daemon`
 PID=`ps -fu ${DAEMON_USER_ID} | grep ${SERVER_PATH}/agent.js | awk '{print $2}'`
 
 start() {
-    if [ -z ${PID} ]; then
-    	sudo -u daemon node ${SERVER_PATH}/agent.js &
-    else
-    	echo "agent process already exist. [pid: ${PID}]"
-    fi
+	if [ -z ${PID} ]; then
+		sudo -u daemon node ${SERVER_PATH}/agent.js > /dev/null &
+	else
+		echo "agent process already exist. [pid: ${PID}]"
+	fi
 }
 
 stop() {
-    if [ -z ${PID} ]; then
-        echo "process not found."
-    else
+	if [ -z ${PID} ]; then
+		echo "process not found."
+	else
 		echo ${PID}
 		${KILL_COMMAND} -TERM ${PID}
 	fi
 }
 
 case "$1" in
-  start)
-	echo -n "Starting $NAME: "
-	start
-	exit $?
-	;;
-  stop)
-	echo -n "Stopping $NAME: "
-	stop
-	exit $?
-	;;
-  restart)
-	echo -n "Restart $NAME: "
-	stop
-	sleep 3
-	start
-	exit $?
-	;;
-  *)
-	N=/etc/init.d/$NAME
-	echo "Usage: $N {start|stop|restart}" >&2
-	exit 1
-	;;
+	start)
+		echo -n "Starting $NAME: "
+		start
+		exit $?
+		;;
+	stop)
+		echo -n "Stopping $NAME: "
+		stop
+		exit $?
+		;;
+	restart)
+		echo -n "Restart $NAME: "
+		stop
+		sleep 1
+		start
+		exit $?
+		;;
+	*)
+		N=/etc/init.d/$NAME
+		echo "Usage: $N {start|stop|restart}" >&2
+		exit 1
+		;;
 esac
 
 exit 0

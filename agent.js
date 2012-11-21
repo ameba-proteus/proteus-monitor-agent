@@ -18,7 +18,7 @@ program.parse(process.argv);
 // default configuration
 var config = {
 	plugins: {
-		dstat: {},
+		stat: {},
 		ps: {}
 	}
 };

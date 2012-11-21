@@ -8,6 +8,7 @@
 	"dependencies": {
 		"commander": "*",
 		"ws": "*",
+		"node-stat": "*",
 		"tailfd": "*"
 	}
 }
