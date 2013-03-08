@@ -1,14 +1,13 @@
 {
 	"name": "proteus-monitor-agent",
-	"version": "0.0.1",
-	"private": true,
+	"version": "1.0.0",
 	"scripts": {
 		"start": "node agent"
 	},
 	"dependencies": {
-		"commander": "*",
-		"ws": "*",
-		"node-stat": "*",
-		"tailfd": "*"
+		"commander": "1.1.1",
+		"ws": "0.4.25",
+		"node-stat": "0.0.4",
+		"tailfd": "0.1.3"
 	}
 }
