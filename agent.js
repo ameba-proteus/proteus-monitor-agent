@@ -110,11 +110,12 @@ d.run(function() {
 			}
 		});
 		ws.on('error', function(err) {
-			if (err.code === 'ECONNREFUSED') {
-				log('failed to connect to the server. retrying after', retrySec, 'seconds');
+			if (err.code === 'ECONNREFUSED' || err.code === 'ENETUNREACH' || err.code === 'EHOSTUNREACH') {
+				log('failed to connect to the server. code:', err.code, 'retrying after', retrySec, 'seconds');
 				setTimeout(create, retrySec*1000);
 			} else {
 				log(err.message);
+				process.exit(1);
 			}
 		});
 		ws.on('close', function() {
