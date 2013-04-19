@@ -5,9 +5,9 @@
 		"start": "node agent"
 	},
 	"dependencies": {
-		"commander": "1.1.1",
-		"ws": "0.4.25",
-		"node-stat": "0.0.4",
-		"tailfd": "0.1.3"
+		"commander": "1.1.x",
+		"ws": "0.4.x",
+		"node-stat": "0.0.x",
+		"tailfd": "0.1.x"
 	}
 }
