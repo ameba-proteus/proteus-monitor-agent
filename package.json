@@ -7,7 +7,7 @@
 	"dependencies": {
 		"commander": "1.1.x",
 		"ws": "0.4.x",
-		"node-stat": "0.0.x",
+		"node-stat": "~0.1.1",
 		"tailfd": "0.1.x"
 	}
 }
